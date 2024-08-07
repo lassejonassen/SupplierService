@@ -1,0 +1,32 @@
+services:
+  supplierservice.webapi:
+    image: ${DOCKER_REGISTRY-}webapi
+    container_name: supplierservice.webapi
+    build:
+      context: .
+      dockerfile: src/WebApi/Dockerfile
+    ports:
+      - '5000:5000'
+      - '5001:5001'
+  supplierservice.database:
+    restart: always
+    image: postgres:latest
+    container_name: supplierservice.database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=supplierdb
+    volumes:
+      - ./.containers/supplier-db:/var/lib/postgressql/data
+    ports:
+      - '5432:5432'
+  supplierservice.migrations:
+    image: ${DOCKER_REGISTRY-}migrations
+    container_name: supplierservice.migrations
+    build:
+      context: .
+      dockerfile: src/Migrations/Dockerfile
+    depends_on:
+      - supplierservice.database
+    environment:
+      - ConnectionStrings__Database=Host=supplierservice.database;Database=supplierdb;Username=postgres;Password=postgres
