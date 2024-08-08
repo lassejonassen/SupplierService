@@ -2,6 +2,9 @@ on:
   workflow_dispatch:
 jobs:
   WebAPI:
-    uses: lassejonassen/GitHub-Pipelines/.github/workflow/aspnetcore-webapi.yml@master
+    uses: lassejonassen/Github-Pipelines/.github/workflows/aspnetcore-webapi.yml@master
     with:
       pipelineName: VendorService
+      containerName: vendorservice
+      azAppConfig: ${{ secrets.AZ_APP_CONFIGURATION }}
+      
