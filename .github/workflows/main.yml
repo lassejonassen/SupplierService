@@ -6,5 +6,6 @@ jobs:
     with:
       pipelineName: VendorService
       containerName: vendorservice
+    secrets:
       azAppConfig: ${{ secrets.AZ_APP_CONFIGURATION }}
       
