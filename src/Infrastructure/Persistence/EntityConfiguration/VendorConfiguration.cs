@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using VendorService.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 
-public class SupplierConfiguration : IEntityTypeConfiguration<Vendor>
+public class VendorConfiguration : IEntityTypeConfiguration<Vendor>
 {
 	public void Configure(EntityTypeBuilder<Vendor> builder)
 	{

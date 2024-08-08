@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using VendorService.Domain.Entities;
 
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 
 public class ProductTypeConfiguration : IEntityTypeConfiguration<ProductType>
 {

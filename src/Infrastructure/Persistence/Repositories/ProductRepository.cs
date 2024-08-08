@@ -1,12 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using VendorService.Domain.Errors;
-using VendorService.Domain.Entities;
-using VendorService.Domain.Repositories;
-using VendorService.Domain.Shared;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
-
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
+﻿namespace VendorService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductRepository : IProductRepository
 {
@@ -134,7 +126,7 @@ public sealed class ProductRepository : IProductRepository
 			return Result.Failure(DomainErrors.Product.NotFound);
 		}
 
-		var supplier = await _dbContext.Suppliers.FirstOrDefaultAsync(x => x.Id == supplierId, cancellationToken);
+		var supplier = await _dbContext.Vendors.FirstOrDefaultAsync(x => x.Id == supplierId, cancellationToken);
 
 		if (supplier is null)
 		{

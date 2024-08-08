@@ -3,9 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using VendorService.Domain.Repositories;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Options;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
+using VendorService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Options;
+using VendorService.Infrastructure.Persistence.Repositories;
 
 namespace VendorService.Infrastructure.SupplierService.Infrastructure;
 
@@ -38,7 +38,7 @@ public static class DependencyInjection
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
 		services.AddScoped<IProductRepository, ProductRepository>();
 		services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-		services.AddScoped<IVendorRepository, SupplierRepository>();
+		services.AddScoped<IVendorRepository, VendorRepository>();
 		services.AddScoped<IContactRepository, ContactRepository>();
 
 		return services;

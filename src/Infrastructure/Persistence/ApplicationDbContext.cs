@@ -1,11 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using VendorService.Domain.Entities;
-
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
+﻿namespace VendorService.Infrastructure.Persistence;
 
 public sealed class ApplicationDbContext : DbContext
 {
-	public DbSet<Vendor> Suppliers => Set<Vendor>();
+	public DbSet<Vendor> Vendors => Set<Vendor>();
 	public DbSet<ProductType> ProductTypes => Set<ProductType>();
 	public DbSet<Product> Products => Set<Product>();
 	public DbSet<Contact> Contacts => Set<Contact>();

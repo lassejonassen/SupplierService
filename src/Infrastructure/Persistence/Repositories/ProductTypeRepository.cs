@@ -4,9 +4,9 @@ using VendorService.Domain.Errors;
 using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence;
 
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductTypeRepository : IProductTypeRepository
 {

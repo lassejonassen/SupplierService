@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence;
 
 namespace VendorService.Migrations;
 

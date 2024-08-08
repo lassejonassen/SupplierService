@@ -2,6 +2,7 @@
 using MediatR;
 using VendorService.Application.Vendors.Commands.CreateVendor;
 using VendorService.Application.Vendors.Commands.DeleteVendor;
+using VendorService.Application.Vendors.Commands.UpdateVendor;
 using VendorService.Application.Vendors.Queries.GetAllVendors;
 using VendorService.Application.Vendors.Queries.GetVendorById;
 
@@ -48,6 +49,19 @@ public class VendorModule : CarterModule
 			}
 
 			return Results.Ok(result.Value);
+		});
+
+		app.MapPatch("/", async (UpdateVendorCommand command, ISender sender) => {
+			var result = await sender.Send(command);
+			if (result.IsFailure)
+			{
+				return Results.Problem(
+					title: result.Error.Title,
+					detail: result.Error.Description,
+					statusCode: StatusCodes.Status400BadRequest);
+			}
+
+			return Results.Ok();
 		});
 
 		app.MapDelete("/{id:guid}", async (Guid id, ISender sender) => {

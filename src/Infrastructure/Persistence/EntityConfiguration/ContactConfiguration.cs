@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using VendorService.Domain.Entities;
 
-namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 public class ContactConfiguration : IEntityTypeConfiguration<Contact>
 {
 	public void Configure(EntityTypeBuilder<Contact> builder)

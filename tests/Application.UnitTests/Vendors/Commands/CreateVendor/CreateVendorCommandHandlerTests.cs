@@ -1,18 +1,13 @@
-﻿using FluentAssertions;
-using Moq;
-using VendorService.Application.Vendors.Commands.CreateVendor;
-using VendorService.Domain.Errors;
-using VendorService.Domain.Repositories;
-using VendorService.Domain.Shared;
+﻿using VendorService.Application.Vendors.Commands.CreateVendor;
 
-namespace VendorService.Application.UnitTests.SupplierService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
+namespace VendorService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
 
-public class CreateSupplierCommandHandlerTests
+public class CreateVendorCommandHandlerTests
 {
 	private readonly Mock<IVendorRepository> _supplierRepositoryMock;
 	private readonly Mock<IUnitOfWork> _unitOfWorkMock;
 
-	public CreateSupplierCommandHandlerTests()
+	public CreateVendorCommandHandlerTests()
 	{
 		_supplierRepositoryMock = new Mock<IVendorRepository>();
 		_unitOfWorkMock = new Mock<IUnitOfWork>();

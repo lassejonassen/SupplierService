@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence;
 
 namespace VendorService.WebApi.SupplierService.WebApi.Extensions;
 
