@@ -20,7 +20,10 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Products\" />
+    <Folder Include="Products\Queries\GetAllProducts\" />
+    <Folder Include="Products\Queries\GetProductById\" />
+    <Folder Include="Products\Queries\GetProductsBySupplierId\" />
+    <Folder Include="Products\Queries\GetProductsByProductTypeId\" />
   </ItemGroup>
 
 	<ItemGroup>

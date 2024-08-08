@@ -13,6 +13,5 @@ public interface IProductRepository
 	Task<Result> UpdateProductType(Guid id, Guid productTypeId, CancellationToken cancellationToken);
 	Task<Result> UpdateSupplier(Guid id, Guid supplierId, CancellationToken cancellationToken);
 	Task<Result> RemoveAsync(Guid id, CancellationToken cancellationToken);
-
 	Task<bool> IsSKUUnique(string sku, CancellationToken cancellationToken);
 }
