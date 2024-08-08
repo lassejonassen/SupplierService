@@ -47,6 +47,13 @@ public sealed class ContactRepository : IContactRepository
 		return entity;
 	}
 
+	public async Task<Result<IEnumerable<Contact>>> GetBySupplierIdAsync(Guid supplierId, CancellationToken cancellationToken)
+	{
+		return await _dbContext.Contacts
+			.Where(x => x.SupplierId == supplierId)
+			.ToListAsync(cancellationToken);
+	}
+
 	public async Task<Result> UpdateAsync(Contact contact, CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.Contacts.FirstOrDefaultAsync(x => x.Id == contact.Id, cancellationToken);

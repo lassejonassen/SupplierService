@@ -20,7 +20,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contacts\" />
     <Folder Include="Products\" />
   </ItemGroup>
 

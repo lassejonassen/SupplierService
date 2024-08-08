@@ -8,4 +8,6 @@ public sealed record ProductType : Entity
 
 	public required Guid SupplierId { get; set; }
 	public required Supplier Supplier { get; set; }
+
+	public ICollection<Product>? Products { get; set; }
 }

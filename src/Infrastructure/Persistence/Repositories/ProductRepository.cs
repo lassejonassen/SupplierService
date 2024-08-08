@@ -47,12 +47,107 @@ public sealed class ProductRepository : IProductRepository
 
 		return entity;
 	}
-	
 
-	public Task<Result> UpdateAsync(Product product, CancellationToken cancellationToken)
+
+	public async Task<Result> UpdateAsync(Product product, CancellationToken cancellationToken)
 	{
-		throw new NotImplementedException();
+		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == product.Id, cancellationToken);
+
+		if (entity is null)
+		{
+			_logger.LogError("Failed to get product from database.");
+			return Result.Failure<Product>(DomainErrors.Product.NotFound);
+		}
+
+		entity.CorrelationId = Guid.NewGuid();
+		entity.UpdatedAt = DateTimeOffset.Now;
+
+		entity.Name = product.Name;
+
+		_dbContext.Entry(entity).State = EntityState.Modified;
+
+		return Result.Success();
 	}
+
+	public async Task<Result> UpdateSKUAsync(Guid id, string sku, CancellationToken cancellationToken)
+	{
+		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+		if (entity is null)
+		{
+			_logger.LogError("Failed to get product from database.");
+			return Result.Failure<Product>(DomainErrors.Product.NotFound);
+		}
+
+		entity.CorrelationId = Guid.NewGuid();
+		entity.UpdatedAt = DateTimeOffset.Now;
+
+		entity.SKU = sku;
+
+		_dbContext.Entry(entity).State = EntityState.Modified;
+
+		return Result.Success();
+	}
+
+	public async Task<Result> UpdateProductType(Guid id, Guid productTypeId , CancellationToken cancellationToken)
+	{
+		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+		if (entity is null)
+		{
+			_logger.LogError("Failed to get product from database.");
+			return Result.Failure(DomainErrors.Product.NotFound);
+		}
+
+		var productType = await _dbContext.ProductTypes.FirstOrDefaultAsync(x => x.Id == productTypeId, cancellationToken);
+
+		if (productType is null)
+		{
+			_logger.LogError("Failed to get product type from database");
+			return Result.Failure(DomainErrors.ProductType.NotFound);
+		}
+
+		entity.CorrelationId = Guid.NewGuid();
+		entity.UpdatedAt = DateTimeOffset.Now;
+
+		entity.ProductTypeId = productTypeId;
+		entity.ProductType = productType;
+
+		_dbContext.Entry(entity).State = EntityState.Modified;
+
+		return Result.Success();
+	}
+
+	public async Task<Result> UpdateSupplier(Guid id, Guid supplierId, CancellationToken cancellationToken)
+	{
+		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+		if (entity is null)
+		{
+			_logger.LogError("Failed to get product from database.");
+			return Result.Failure(DomainErrors.Product.NotFound);
+		}
+
+		var supplier = await _dbContext.Suppliers.FirstOrDefaultAsync(x => x.Id == supplierId, cancellationToken);
+
+		if (supplier is null)
+		{
+			_logger.LogError("Failed to get supplier from database");
+			return Result.Failure(DomainErrors.Supplier.NotFound);
+		}
+
+		entity.CorrelationId = Guid.NewGuid();
+		entity.UpdatedAt = DateTimeOffset.Now;
+
+		entity.SupplierId= supplierId;
+		entity.Supplier = supplier;
+
+		_dbContext.Entry(entity).State = EntityState.Modified;
+
+		return Result.Success();
+	}
+
+
 
 	public async Task<Result> RemoveAsync(Guid id, CancellationToken cancellationToken)
 	{
@@ -73,5 +168,11 @@ public sealed class ProductRepository : IProductRepository
 		}
 
 		return Result.Success();
+	}
+
+	public async Task<bool> IsSKUUnique(string sku, CancellationToken cancellationToken)
+	{
+		var exists = await _dbContext.Products.AnyAsync(x => x.SKU == sku, cancellationToken);
+		return !exists;
 	}
 }

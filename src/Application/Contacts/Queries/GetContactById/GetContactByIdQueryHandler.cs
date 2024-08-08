@@ -1,0 +1,29 @@
+﻿using SupplierService.Application.Abstractions.Messaging;
+using SupplierService.Domain.Entities;
+using SupplierService.Domain.Repositories;
+using SupplierService.Domain.Shared;
+
+namespace SupplierService.Application.Contacts.Queries.GetContactById;
+
+internal sealed class GetContactByIdQueryHandler : IQueryHandler<GetContactByIdQuery, Contact>
+{
+	private readonly IContactRepository _repository;
+
+	public GetContactByIdQueryHandler(IContactRepository repository)
+	{
+		_repository = repository;
+	}
+
+
+	public async Task<Result<Contact>> Handle(GetContactByIdQuery request, CancellationToken cancellationToken)
+	{
+		var result = await _repository.GetByIdAsync(request.Id, cancellationToken);
+
+		if (result.IsFailure)
+		{
+			return Result.Failure<Contact>(result.Error);
+		}
+
+		return result.Value;
+	}
+}

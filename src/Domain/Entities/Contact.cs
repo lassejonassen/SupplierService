@@ -12,4 +12,32 @@ public sealed record Contact : Entity
 
 	public required Guid SupplierId { get; set; }
 	public required Supplier Supplier { get; set; }
+
+	public static Contact Create(
+		string firstName, string lastName,
+		string email, string phone,
+		string? notes,
+		Supplier supplier)
+	{
+		var contact = new Contact ()
+		{
+			Id = Guid.NewGuid(),
+			CreatedAt = DateTimeOffset.Now,
+			UpdatedAt = null,
+			CorrelationId = Guid.NewGuid(),
+			FirstName = firstName,
+			LastName = lastName,
+			Email = email,
+			Phone = phone,
+			Notes = notes,
+			SupplierId = supplier.Id,
+			Supplier = supplier
+		};
+
+		//contact.Raise(new ContactCreatedEvent {
+		//	ContactId = contact.Id,
+		//});
+
+		return contact;
+	}
 }
