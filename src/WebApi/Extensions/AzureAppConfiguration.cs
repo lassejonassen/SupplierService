@@ -16,7 +16,7 @@ public static class AzureAppConfiguration
 			Console.WriteLine("Using Azure App Configuration");
 			configurationBuilder.AddAzureAppConfiguration(options => {
 				options.Connect(appConfigConnectionString)
-					.Select(KeyFilter.Any, LabelFilter.Null)
+					.Select(KeyFilter.Any, "Shared")
 					.Select(KeyFilter.Any, Label);
 			});
 		}
