@@ -1,4 +1,5 @@
-﻿using VendorService.Domain.Entities;
+﻿using VendorService.Application.Abstractions.Messaging;
+using VendorService.Domain.Entities;
 
 namespace VendorService.Application.Contacts.Queries.GetContactById;
 

@@ -1,7 +1,7 @@
-﻿using VendorService.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
-namespace VendorService.WebApi.Extensions;
+namespace VendorService.WebApi.SupplierService.WebApi.Extensions;
 
 public static class MigrationExtensions
 {

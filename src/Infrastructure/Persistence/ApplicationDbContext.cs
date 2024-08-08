@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VendorService.Domain.Entities;
 
-namespace VendorService.Infrastructure.Persistence;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
 public sealed class ApplicationDbContext : DbContext
 {

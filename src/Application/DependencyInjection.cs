@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using VendorService.Application.Abstractions.Behavior;
 
-namespace VendorService.Application;
+namespace VendorService.Application.SupplierService.Application;
 
 public static class DependencyInjection
 {

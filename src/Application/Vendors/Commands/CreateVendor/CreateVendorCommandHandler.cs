@@ -2,8 +2,9 @@
 using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
+using VendorService.Application.Abstractions.Messaging;
 
-namespace VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
+namespace VendorService.Application.Vendors.Commands.CreateVendor;
 
 internal sealed class CreateVendorCommandHandler : ICommandHandler<CreateVendorCommand, Guid>
 {

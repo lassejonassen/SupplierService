@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Moq;
-using VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
+using VendorService.Application.Vendors.Commands.CreateVendor;
 using VendorService.Domain.Errors;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
 
-namespace VendorService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
+namespace VendorService.Application.UnitTests.SupplierService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
 
 public class CreateSupplierCommandHandlerTests
 {

@@ -1,18 +1,18 @@
 ﻿using Carter;
 using MediatR;
-using VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
-using VendorService.Application.VendorService.Application.Vendors.Commands.DeleteVendor;
-using VendorService.Application.VendorService.Application.Vendors.Queries.GetAllVendors;
-using VendorService.Application.VendorService.Application.Vendors.Queries.GetVendorById;
+using VendorService.Application.Vendors.Commands.CreateVendor;
+using VendorService.Application.Vendors.Commands.DeleteVendor;
+using VendorService.Application.Vendors.Queries.GetAllVendors;
+using VendorService.Application.Vendors.Queries.GetVendorById;
 
-namespace VendorService.WebApi.Endpoints;
+namespace VendorService.WebApi.SupplierService.WebApi.Endpoints;
 
-public class SupplierModule : CarterModule
+public class VendorModule : CarterModule
 {
-	public SupplierModule()
-		: base("/api/suppliers")
+	public VendorModule()
+		: base("/api/vendors")
 	{
-		WithTags("Suppliers");
+		WithTags("vendors");
 	}
 
 	public override void AddRoutes(IEndpointRouteBuilder app)
@@ -37,7 +37,7 @@ public class SupplierModule : CarterModule
 			}
 
 			return Results.Ok(result.Value);
-		}).WithDescription("Get all suppliers");
+		});
 
 		app.MapGet("/{id:guid}", async (Guid id, ISender sender) => {
 			var result = await sender.Send(new GetVendorByIdQuery(id));
@@ -48,7 +48,7 @@ public class SupplierModule : CarterModule
 			}
 
 			return Results.Ok(result.Value);
-		}).WithDescription("Get a supplier by id");
+		});
 
 		app.MapDelete("/{id:guid}", async (Guid id, ISender sender) => {
 			var result = await sender.Send(new DeleteVendorCommand(id));
@@ -59,6 +59,6 @@ public class SupplierModule : CarterModule
 			}
 
 			return Results.Ok();
-		}).WithDescription("Delete a supplier");
+		});
 	}
 }

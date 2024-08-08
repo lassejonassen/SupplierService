@@ -1,6 +1,4 @@
-﻿using VendorService.Domain.Errors;
-
-namespace VendorService.Application.Contacts.Commands.CreateContact;
+﻿namespace VendorService.Application.Contacts.Commands.CreateContact;
 
 internal sealed class CreateContactCommandHandler : ICommandHandler<CreateContactCommand, Guid>
 {

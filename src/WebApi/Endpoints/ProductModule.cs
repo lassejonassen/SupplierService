@@ -11,7 +11,7 @@ using VendorService.Application.Products.Queries.GetProductById;
 using VendorService.Application.Products.Queries.GetProductsByProductTypeId;
 using VendorService.Application.Products.Queries.GetProductsBySupplierId;
 
-namespace VendorService.WebApi.Endpoints;
+namespace VendorService.WebApi.SupplierService.WebApi.Endpoints;
 
 public class ProductModule : CarterModule
 {
@@ -63,7 +63,7 @@ public class ProductModule : CarterModule
 			return Results.Ok(result.Value);
 		});
 
-		app.MapGet("/supplier/{id:guid}", async (Guid id, ISender sender) => {
+		app.MapGet("/vendor/{id:guid}", async (Guid id, ISender sender) => {
 			var result = await sender.Send(new GetProductsBySupplierIdQuery(id));
 			if (result.IsFailure)
 			{
@@ -128,7 +128,7 @@ public class ProductModule : CarterModule
 			return Results.Ok();
 		});
 
-		app.MapPatch("/supplier", async (UpdateProductSupplierCommand command, ISender sender) => {
+		app.MapPatch("/vendor", async (UpdateProductSupplierCommand command, ISender sender) => {
 			var result = await sender.Send(command);
 			if (result.IsFailure)
 			{

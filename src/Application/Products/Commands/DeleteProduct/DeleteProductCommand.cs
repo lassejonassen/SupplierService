@@ -1,3 +1,5 @@
-﻿namespace VendorService.Application.Products.Commands.DeleteProduct;
+﻿using VendorService.Application.Abstractions.Messaging;
 
-public sealed record DeleteProductCommand(Guid Id): ICommand;
+namespace VendorService.Application.Products.Commands.DeleteProduct;
+
+public sealed record DeleteProductCommand(Guid Id) : ICommand;

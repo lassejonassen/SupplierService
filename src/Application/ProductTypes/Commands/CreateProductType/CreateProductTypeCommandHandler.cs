@@ -1,4 +1,6 @@
-﻿namespace VendorService.Application.ProductTypes.Commands.CreateProductType;
+﻿using VendorService.Application.Abstractions.Messaging;
+
+namespace VendorService.Application.ProductTypes.Commands.CreateProductType;
 
 internal sealed class CreateProductTypeCommandHandler : ICommandHandler<CreateProductTypeCommand, Guid>
 {

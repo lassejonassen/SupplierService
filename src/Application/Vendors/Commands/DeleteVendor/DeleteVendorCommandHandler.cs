@@ -2,7 +2,7 @@
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
 
-namespace VendorService.Application.VendorService.Application.Vendors.Commands.DeleteVendor;
+namespace VendorService.Application.Vendors.Commands.DeleteVendor;
 
 internal sealed class DeleteVendorCommandHandler : ICommandHandler<DeleteVendorCommand>
 {

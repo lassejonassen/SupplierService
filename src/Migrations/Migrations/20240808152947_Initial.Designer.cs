@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using VendorService.Infrastructure.Persistence;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
 #nullable disable
 
 namespace VendorService.Migrations.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+	[DbContext(typeof(ApplicationDbContext))]
     [Migration("20240808152947_Initial")]
     partial class Initial
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-namespace VendorService.WebApi.Extensions;
+namespace VendorService.WebApi.SupplierService.WebApi.Extensions;
 
 public static class AzureAppConfiguration
 {

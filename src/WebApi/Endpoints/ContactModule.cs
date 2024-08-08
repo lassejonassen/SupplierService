@@ -7,7 +7,7 @@ using VendorService.Application.Contacts.Queries.GetAllContacts;
 using VendorService.Application.Contacts.Queries.GetContactById;
 using VendorService.Application.Contacts.Queries.GetContactBySupplierId;
 
-namespace VendorService.WebApi.Endpoints;
+namespace VendorService.WebApi.SupplierService.WebApi.Endpoints;
 
 public class ContactModule : CarterModule
 {
@@ -59,7 +59,7 @@ public class ContactModule : CarterModule
 			return Results.Ok(result.Value);
 		});
 
-		app.MapGet("/supplier/{id:guid}", async (Guid id, ISender sender) => {
+		app.MapGet("/vendor/{id:guid}", async (Guid id, ISender sender) => {
 			var result = await sender.Send(new GetContactBySupplierIdQuery(id));
 			if (result.IsFailure)
 			{

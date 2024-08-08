@@ -2,12 +2,12 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using VendorService.Infrastructure.Options;
-using VendorService.Infrastructure.Persistence;
-using VendorService.Infrastructure.Persistence.Repositories;
 using VendorService.Domain.Repositories;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Options;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
 
-namespace VendorService.Infrastructure;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure;
 
 public static class DependencyInjection
 {

@@ -1,4 +1,5 @@
-﻿using VendorService.Domain.Repositories;
+﻿using VendorService.Application.Abstractions.Messaging;
+using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
 
 namespace VendorService.Application.Products.Commands.UpdateProductSKU;

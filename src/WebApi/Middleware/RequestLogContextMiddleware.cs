@@ -1,6 +1,6 @@
 ﻿using Serilog.Context;
 
-namespace VendorService.WebApi.Middleware;
+namespace VendorService.WebApi.SupplierService.WebApi.Middleware;
 
 public class RequestLogContextMiddleware
 {
@@ -13,7 +13,7 @@ public class RequestLogContextMiddleware
 
 	public async Task Invoke(HttpContext context)
 	{
-		using(LogContext.PushProperty("CorrelationId", context.TraceIdentifier))
+		using (LogContext.PushProperty("CorrelationId", context.TraceIdentifier))
 		{
 			await _next(context);
 		}

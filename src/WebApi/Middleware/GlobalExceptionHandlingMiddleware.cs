@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
-namespace VendorService.WebApi.Middleware;
+namespace VendorService.WebApi.SupplierService.WebApi.Middleware;
 
 public class GlobalExceptionHandlingMiddleware
 {
@@ -24,7 +24,7 @@ public class GlobalExceptionHandlingMiddleware
 		{
 			_logger.LogError(ex, ex.Message);
 
-			context.Response.StatusCode = (int)StatusCodes.Status500InternalServerError;
+			context.Response.StatusCode = StatusCodes.Status500InternalServerError;
 
 			ProblemDetails problem = new() {
 				Status = StatusCodes.Status501NotImplemented,
@@ -43,7 +43,7 @@ public class GlobalExceptionHandlingMiddleware
 		{
 			_logger.LogError(ex, ex.Message);
 
-			context.Response.StatusCode = (int)StatusCodes.Status500InternalServerError;
+			context.Response.StatusCode = StatusCodes.Status500InternalServerError;
 
 			ProblemDetails problem = new() {
 				Status = StatusCodes.Status500InternalServerError,

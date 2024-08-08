@@ -4,8 +4,9 @@ using VendorService.Domain.Errors;
 using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
-namespace VendorService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductRepository : IProductRepository
 {
@@ -94,7 +95,7 @@ public sealed class ProductRepository : IProductRepository
 		return Result.Success();
 	}
 
-	public async Task<Result> UpdateProductTypeAsync(Guid id, Guid productTypeId , CancellationToken cancellationToken)
+	public async Task<Result> UpdateProductTypeAsync(Guid id, Guid productTypeId, CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -144,7 +145,7 @@ public sealed class ProductRepository : IProductRepository
 		entity.CorrelationId = Guid.NewGuid();
 		entity.UpdatedAt = DateTimeOffset.Now;
 
-		entity.VendorId= supplierId;
+		entity.VendorId = supplierId;
 		entity.Vendor = supplier;
 
 		_dbContext.Entry(entity).State = EntityState.Modified;
@@ -181,5 +182,5 @@ public sealed class ProductRepository : IProductRepository
 		return !exists;
 	}
 
-	
+
 }

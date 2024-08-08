@@ -4,8 +4,9 @@ using VendorService.Domain.Errors;
 using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
-namespace VendorService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
 
 public class SupplierRepository : IVendorRepository
 {

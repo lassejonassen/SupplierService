@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace VendorService.Infrastructure.Options;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure.Options;
 
 public class DatabaseOptionsSetup : IConfigureOptions<DatabaseOptions>
 {

@@ -1,4 +1,6 @@
-﻿namespace VendorService.Application.Products.Commands.CreateProduct;
+﻿using VendorService.Application.Abstractions.Messaging;
+
+namespace VendorService.Application.Products.Commands.CreateProduct;
 
 public sealed record CreateProductCommand(
 	string Name,

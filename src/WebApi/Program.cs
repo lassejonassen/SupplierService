@@ -1,10 +1,10 @@
 using Asp.Versioning;
 using Carter;
 using Serilog;
-using VendorService.Application;
-using VendorService.Infrastructure;
-using VendorService.WebApi.Extensions;
-using VendorService.WebApi.Middleware;
+using VendorService.Application.SupplierService.Application;
+using VendorService.Infrastructure.SupplierService.Infrastructure;
+using VendorService.WebApi.SupplierService.WebApi.Extensions;
+using VendorService.WebApi.SupplierService.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

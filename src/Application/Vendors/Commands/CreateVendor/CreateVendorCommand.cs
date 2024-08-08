@@ -1,4 +1,6 @@
-﻿namespace VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
+﻿using VendorService.Application.Abstractions.Messaging;
+
+namespace VendorService.Application.Vendors.Commands.CreateVendor;
 
 public sealed record CreateVendorCommand(
 	string Name,

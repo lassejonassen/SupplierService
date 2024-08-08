@@ -1,32 +1,32 @@
 services:
-  supplierservice.webapi:
+  vendorservice.webapi:
     image: ${DOCKER_REGISTRY-}webapi
-    container_name: supplierservice.webapi
+    container_name: vendorservice.webapi
     build:
       context: .
       dockerfile: src/WebApi/Dockerfile
     ports:
       - '5000:5000'
       - '5001:5001'
-  supplierservice.database:
+  vendorservice.database:
     restart: always
     image: postgres:latest
-    container_name: supplierservice.database
+    container_name: vendorservice.database
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=supplierdb
+      - POSTGRES_DB=vendordb
     volumes:
-      - ./.containers/supplier-db:/var/lib/postgressql/data
+      - ./.containers/vendor-db:/var/lib/postgressql/data
     ports:
       - '5432:5432'
-  supplierservice.migrations:
+  vendorservice.migrations:
     image: ${DOCKER_REGISTRY-}migrations
-    container_name: supplierservice.migrations
+    container_name: vendorservice.migrations
     build:
       context: .
       dockerfile: src/Migrations/Dockerfile
     depends_on:
-      - supplierservice.database
+      - vendorservice.database
     environment:
-      - ConnectionStrings__Database=Host=supplierservice.database;Database=supplierdb;Username=postgres;Password=postgres
+      - ConnectionStrings__Database=Host=vendorservice.database;Database=vendordb;Username=postgres;Password=postgres

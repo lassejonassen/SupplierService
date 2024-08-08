@@ -1,8 +1,9 @@
-﻿using VendorService.Domain.Entities;
+﻿using VendorService.Application.Abstractions.Messaging;
+using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
 
-namespace VendorService.Application.VendorService.Application.Vendors.Queries.GetVendorById;
+namespace VendorService.Application.Vendors.Queries.GetVendorById;
 
 internal sealed class GetVendorByIdQueryHandler : IQueryHandler<GetVendorByIdQuery, Vendor>
 {

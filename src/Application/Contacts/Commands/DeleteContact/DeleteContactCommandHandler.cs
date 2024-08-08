@@ -1,7 +1,4 @@
-﻿using VendorService.Domain.Repositories;
-using VendorService.Domain.Shared;
-
-namespace VendorService.Application.Contacts.Commands.DeleteContact;
+﻿namespace VendorService.Application.Contacts.Commands.DeleteContact;
 
 internal sealed class DeleteContactCommandHandler : ICommandHandler<DeleteContactCommand>
 {
@@ -26,7 +23,7 @@ internal sealed class DeleteContactCommandHandler : ICommandHandler<DeleteContac
 		var result = await _repository.RemoveAsync(contact.Value.Id, cancellationToken);
 
 		if (result.IsFailure)
-		{ 
+		{
 			return Result.Failure(result.Error);
 		}
 

@@ -4,8 +4,9 @@ using VendorService.Domain.Errors;
 using VendorService.Domain.Entities;
 using VendorService.Domain.Repositories;
 using VendorService.Domain.Shared;
+using VendorService.Infrastructure.SupplierService.Infrastructure.Persistence;
 
-namespace VendorService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.SupplierService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductTypeRepository : IProductTypeRepository
 {
@@ -67,7 +68,7 @@ public sealed class ProductTypeRepository : IProductTypeRepository
 		return Result.Success();
 	}
 
-	public  async Task<Result> RemoveAsync(Guid id, CancellationToken cancellationToken)
+	public async Task<Result> RemoveAsync(Guid id, CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.ProductTypes.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
