@@ -1,6 +1,6 @@
 ﻿namespace VendorService.Domain.Enums;
 
-public enum SupplierStatus
+public enum VendorStatus
 {
 	Active = 1, // Currently active and supplying goods
 

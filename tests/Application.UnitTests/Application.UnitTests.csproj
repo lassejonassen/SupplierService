@@ -29,4 +29,9 @@
 		<Using Include="Xunit" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="ProductTypes\" />
+	  <Folder Include="Products\" />
+	</ItemGroup>
+
 </Project>

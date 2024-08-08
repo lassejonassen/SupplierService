@@ -17,7 +17,7 @@ internal sealed class DeleteContactCommandHandler : ICommandHandler<DeleteContac
 
 		if (contact.IsFailure)
 		{
-			return Result.Failure(contact.Error);
+			return Result.Failure(DomainErrors.Contact.NotFound);
 		}
 
 		var result = await _repository.RemoveAsync(contact.Value.Id, cancellationToken);

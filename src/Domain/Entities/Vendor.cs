@@ -7,7 +7,7 @@ public sealed record Vendor : Entity
 {
 	// Base Information
 	public required string Name { get; set; }
-	public required SupplierStatus Status { get; set; } = SupplierStatus.PendingApproval;
+	public required VendorStatus Status { get; set; } = VendorStatus.PendingApproval;
 
 	public required string Street { get; set; }
 	public required string City { get; set; }
@@ -37,7 +37,7 @@ public sealed record Vendor : Entity
 			CreatedAt = DateTimeOffset.Now,
 			UpdatedAt = null,
 			CorrelationId = Guid.NewGuid(),
-			Status = SupplierStatus.PendingApproval,
+			Status = VendorStatus.PendingApproval,
 			Name = name,
 			Street = street,
 			City = city,
