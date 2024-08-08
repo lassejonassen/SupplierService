@@ -1,9 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
-
-namespace SupplierService.Application.ProductTypes.Queries.GetProductTypeById;
+﻿namespace SupplierService.Application.ProductTypes.Queries.GetProductTypeById;
 
 internal sealed class GetProductTypeByIdQueryHandler : IQueryHandler<GetProductTypeByIdQuery, ProductType>
 {

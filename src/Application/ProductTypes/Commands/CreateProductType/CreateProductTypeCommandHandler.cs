@@ -1,8 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
+﻿using SupplierService.Domain.Errors;
 
 namespace SupplierService.Application.ProductTypes.Commands.CreateProductType;
 

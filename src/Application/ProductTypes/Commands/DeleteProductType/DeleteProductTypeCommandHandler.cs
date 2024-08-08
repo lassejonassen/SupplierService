@@ -1,8 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
-
-namespace SupplierService.Application.ProductTypes.Commands.DeleteProductType;
+﻿namespace SupplierService.Application.ProductTypes.Commands.DeleteProductType;
 
 internal sealed class DeleteProductTypeCommandHandler : ICommandHandler<DeleteProductTypeCommand>
 {

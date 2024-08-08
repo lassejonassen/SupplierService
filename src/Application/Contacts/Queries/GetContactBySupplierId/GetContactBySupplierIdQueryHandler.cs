@@ -1,9 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
-
-namespace SupplierService.Application.Contacts.Queries.GetContactBySupplierId;
+﻿namespace SupplierService.Application.Contacts.Queries.GetContactBySupplierId;
 
 internal sealed class GetContactBySupplierIdQueryHandler : IQueryHandler<GetContactBySupplierIdQuery, IEnumerable<Contact>>
 {

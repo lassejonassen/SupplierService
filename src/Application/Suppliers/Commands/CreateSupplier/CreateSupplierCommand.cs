@@ -1,6 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-
-namespace SupplierService.Application.Suppliers.Commands.CreateSupplier;
+﻿namespace SupplierService.Application.Suppliers.Commands.CreateSupplier;
 
 public sealed record CreateSupplierCommand(
 	string Name,

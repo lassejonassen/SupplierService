@@ -1,9 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
-
-namespace SupplierService.Application.Suppliers.Queries.GetAllSuppliers;
+﻿namespace SupplierService.Application.Suppliers.Queries.GetAllSuppliers;
 
 internal sealed class GetAllSuppliersQueryHandler : IQueryHandler<GetAllSuppliersQuery, IEnumerable<Supplier>>
 {

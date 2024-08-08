@@ -34,6 +34,9 @@ public sealed class ProductRepository : IProductRepository
 	public async Task<Result<IEnumerable<Product>>> GetAllAsync(CancellationToken cancellationToken)
 		=> await _dbContext.Products.ToListAsync(cancellationToken);
 
+	public async Task<Result<IEnumerable<Product>>> GetBySupplierIdAsync(Guid supplierId, CancellationToken cancellationToken)
+		=> await _dbContext.Products.Where(x => x.SupplierId == supplierId).ToListAsync(cancellationToken);
+
 
 	public async Task<Result<Product>> GetByIdAsync(Guid id, CancellationToken cancellationToken)
 	{
@@ -48,6 +51,8 @@ public sealed class ProductRepository : IProductRepository
 		return entity;
 	}
 
+	public async Task<Result<IEnumerable<Product>>> GetByProductTypeIdAsync(Guid productTypeId, CancellationToken cancellationToken)
+		=> await _dbContext.Products.Where(x => x.ProductTypeId == productTypeId).ToListAsync(cancellationToken);
 
 	public async Task<Result> UpdateAsync(Product product, CancellationToken cancellationToken)
 	{
@@ -89,7 +94,7 @@ public sealed class ProductRepository : IProductRepository
 		return Result.Success();
 	}
 
-	public async Task<Result> UpdateProductType(Guid id, Guid productTypeId , CancellationToken cancellationToken)
+	public async Task<Result> UpdateProductTypeAsync(Guid id, Guid productTypeId , CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -118,7 +123,7 @@ public sealed class ProductRepository : IProductRepository
 		return Result.Success();
 	}
 
-	public async Task<Result> UpdateSupplier(Guid id, Guid supplierId, CancellationToken cancellationToken)
+	public async Task<Result> UpdateSupplierAsync(Guid id, Guid supplierId, CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -175,4 +180,6 @@ public sealed class ProductRepository : IProductRepository
 		var exists = await _dbContext.Products.AnyAsync(x => x.SKU == sku, cancellationToken);
 		return !exists;
 	}
+
+	
 }
