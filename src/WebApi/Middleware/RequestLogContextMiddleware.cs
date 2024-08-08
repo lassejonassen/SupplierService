@@ -1,6 +1,6 @@
 ﻿using Serilog.Context;
 
-namespace SupplierService.WebApi.Middleware;
+namespace VendorService.WebApi.Middleware;
 
 public class RequestLogContextMiddleware
 {

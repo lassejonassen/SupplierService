@@ -1,14 +1,14 @@
-﻿using SupplierService.Domain.Errors;
+﻿using VendorService.Domain.Errors;
 
-namespace SupplierService.Application.Contacts.Commands.CreateContact;
+namespace VendorService.Application.Contacts.Commands.CreateContact;
 
 internal sealed class CreateContactCommandHandler : ICommandHandler<CreateContactCommand, Guid>
 {
 	private readonly IContactRepository _contactRepository;
-	private readonly ISupplierRepository _supplierRepository;
+	private readonly IVendorRepository _supplierRepository;
 	private readonly IUnitOfWork _unitOfWork;
 
-	public CreateContactCommandHandler(IContactRepository contactRepository, ISupplierRepository supplierRepository, IUnitOfWork unitOfWork)
+	public CreateContactCommandHandler(IContactRepository contactRepository, IVendorRepository supplierRepository, IUnitOfWork unitOfWork)
 	{
 		_contactRepository = contactRepository;
 		_supplierRepository = supplierRepository;
@@ -26,7 +26,7 @@ internal sealed class CreateContactCommandHandler : ICommandHandler<CreateContac
 
 		if (supplier.IsFailure)
 		{
-			return Result.Failure<Guid>(DomainErrors.Supplier.NotFound);
+			return Result.Failure<Guid>(DomainErrors.Vendor.NotFound);
 		}
 
 		var contact = Contact.Create(

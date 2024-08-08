@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductRepository : IProductRepository
 {
@@ -35,7 +35,7 @@ public sealed class ProductRepository : IProductRepository
 		=> await _dbContext.Products.ToListAsync(cancellationToken);
 
 	public async Task<Result<IEnumerable<Product>>> GetBySupplierIdAsync(Guid supplierId, CancellationToken cancellationToken)
-		=> await _dbContext.Products.Where(x => x.SupplierId == supplierId).ToListAsync(cancellationToken);
+		=> await _dbContext.Products.Where(x => x.VendorId == supplierId).ToListAsync(cancellationToken);
 
 
 	public async Task<Result<Product>> GetByIdAsync(Guid id, CancellationToken cancellationToken)
@@ -138,14 +138,14 @@ public sealed class ProductRepository : IProductRepository
 		if (supplier is null)
 		{
 			_logger.LogError("Failed to get supplier from database");
-			return Result.Failure(DomainErrors.Supplier.NotFound);
+			return Result.Failure(DomainErrors.Vendor.NotFound);
 		}
 
 		entity.CorrelationId = Guid.NewGuid();
 		entity.UpdatedAt = DateTimeOffset.Now;
 
-		entity.SupplierId= supplierId;
-		entity.Supplier = supplier;
+		entity.VendorId= supplierId;
+		entity.Vendor = supplier;
 
 		_dbContext.Entry(entity).State = EntityState.Modified;
 

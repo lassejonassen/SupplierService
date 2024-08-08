@@ -1,6 +1,6 @@
-﻿using SupplierService.Domain.Shared;
+﻿using VendorService.Domain.Shared;
 
-namespace SupplierService.Domain.Errors;
+namespace VendorService.Domain.Errors;
 
 public static partial class DomainErrors
 {

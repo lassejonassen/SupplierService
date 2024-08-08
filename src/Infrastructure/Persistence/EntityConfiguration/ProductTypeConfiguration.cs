@@ -1,8 +1,8 @@
-﻿using SupplierService.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using VendorService.Domain.Entities;
 
-namespace SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 
 public class ProductTypeConfiguration : IEntityTypeConfiguration<ProductType>
 {

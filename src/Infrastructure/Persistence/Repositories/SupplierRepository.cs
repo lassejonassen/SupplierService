@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.Persistence.Repositories;
 
-public class SupplierRepository : ISupplierRepository
+public class SupplierRepository : IVendorRepository
 {
 	private readonly ApplicationDbContext _dbContext;
 	private readonly ILogger<SupplierRepository> _logger;
@@ -18,30 +18,30 @@ public class SupplierRepository : ISupplierRepository
 		_logger = logger;
 	}
 
-	public async Task<Result> AddAsync(Supplier supplier, CancellationToken cancellationToken)
+	public async Task<Result> AddAsync(Vendor supplier, CancellationToken cancellationToken)
 	{
 		var result = await _dbContext.Suppliers.AddAsync(supplier, cancellationToken);
 
 		if (result is null)
 		{
 			_logger.LogError("Failed to add supplier to database.");
-			return Result.Failure(DomainErrors.Supplier.FailedToAdd);
+			return Result.Failure(DomainErrors.Vendor.FailedToAdd);
 		}
 
 		return Result.Success();
 	}
 
-	public async Task<Result<IEnumerable<Supplier>>> GetAllAsync(CancellationToken cancellationToken)
+	public async Task<Result<IEnumerable<Vendor>>> GetAllAsync(CancellationToken cancellationToken)
 		=> await _dbContext.Suppliers.ToListAsync(cancellationToken);
 
-	public async Task<Result<Supplier>> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+	public async Task<Result<Vendor>> GetByIdAsync(Guid id, CancellationToken cancellationToken)
 	{
 		var entity = await _dbContext.Suppliers.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
 		if (entity is null)
 		{
 			_logger.LogError("Failed to get supplier from database.");
-			return Result.Failure<Supplier>(DomainErrors.Supplier.NotFound);
+			return Result.Failure<Vendor>(DomainErrors.Vendor.NotFound);
 		}
 
 		return entity;
@@ -54,7 +54,7 @@ public class SupplierRepository : ISupplierRepository
 		if (entity is null)
 		{
 			_logger.LogError("Failed to get supplier from database.");
-			return Result.Failure<Supplier>(DomainErrors.Supplier.NotFound);
+			return Result.Failure<Vendor>(DomainErrors.Vendor.NotFound);
 		}
 
 		var result = _dbContext.Suppliers.Remove(entity);
@@ -62,7 +62,7 @@ public class SupplierRepository : ISupplierRepository
 		if (result.State != EntityState.Deleted)
 		{
 			_logger.LogError("Failed to remove supplier from database");
-			return Result.Failure(DomainErrors.Supplier.FailedToRemove);
+			return Result.Failure(DomainErrors.Vendor.FailedToRemove);
 		}
 
 		return Result.Success();

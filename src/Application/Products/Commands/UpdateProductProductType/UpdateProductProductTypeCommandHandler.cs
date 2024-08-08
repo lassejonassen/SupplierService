@@ -1,4 +1,7 @@
-﻿namespace SupplierService.Application.Products.Commands.UpdateProductProductType;
+﻿using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Products.Commands.UpdateProductProductType;
 
 internal sealed class UpdateProductProductTypeCommandHandler : ICommandHandler<UpdateProductProductTypeCommand>
 {

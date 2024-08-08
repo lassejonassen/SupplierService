@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Serilog.Settings.Configuration;
 
-namespace SupplierService.WebApi.Extensions;
+namespace VendorService.WebApi.Extensions;
 
 public static class SerilogExtensions
 {

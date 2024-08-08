@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Domain.Repositories;
+﻿namespace VendorService.Domain.Repositories;
 
 public interface IUnitOfWork
 {

@@ -1,4 +1,7 @@
-﻿namespace SupplierService.Application.Contacts.Commands.DeleteContact;
+﻿using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Contacts.Commands.DeleteContact;
 
 internal sealed class DeleteContactCommandHandler : ICommandHandler<DeleteContactCommand>
 {

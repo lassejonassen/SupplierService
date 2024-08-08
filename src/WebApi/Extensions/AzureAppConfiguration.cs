@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-namespace SupplierService.WebApi.Extensions;
+namespace VendorService.WebApi.Extensions;
 
 public static class AzureAppConfiguration
 {
 	public const string SectionName = "AppSettings:ConnectionStrings:AppConfig";
-	public const string Label = "SupplierService";
+	public const string Label = "VendorService";
 
 	public static void AddAppConfiguration(this IConfigurationBuilder configurationBuilder, IConfiguration configuration)
 	{

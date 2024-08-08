@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SupplierService.Application.Abstractions.Messaging;
+namespace VendorService.Application.Abstractions.Messaging;
 
 public interface ICommandHandler<TCommand> : IRequestHandler<TCommand, Result>
 	where TCommand : ICommand;

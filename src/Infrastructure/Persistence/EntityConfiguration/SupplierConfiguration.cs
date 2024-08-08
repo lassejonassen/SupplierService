@@ -1,12 +1,12 @@
-﻿using SupplierService.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using VendorService.Domain.Entities;
 
-namespace SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 
-public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
+public class SupplierConfiguration : IEntityTypeConfiguration<Vendor>
 {
-	public void Configure(EntityTypeBuilder<Supplier> builder)
+	public void Configure(EntityTypeBuilder<Vendor> builder)
 	{
 		builder.HasKey(x => x.Id);
 
@@ -16,12 +16,12 @@ public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
 
 		builder
 			.HasMany(x => x.Products)
-			.WithOne(x => x.Supplier!)
+			.WithOne(x => x.Vendor!)
 			.OnDelete(DeleteBehavior.Restrict);
 
 		builder.HasMany(x => x.Contacts)
-			.WithOne(x => x.Supplier!)
-			.HasForeignKey(x => x.SupplierId)
+			.WithOne(x => x.Vendor!)
+			.HasForeignKey(x => x.VendorId)
 			.OnDelete(DeleteBehavior.Cascade);
 	}
 }

@@ -1,4 +1,7 @@
-﻿namespace SupplierService.Application.Contacts.Commands.UpdateContactSupplierReference;
+﻿using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Contacts.Commands.UpdateContactSupplierReference;
 
 internal sealed class UpdateContactSupplierReferenceCommandHandler : ICommandHandler<UpdateContactSupplierReferenceCommand>
 {

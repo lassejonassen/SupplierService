@@ -2,12 +2,12 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using SupplierService.Domain.Repositories;
-using SupplierService.Infrastructure.Options;
-using SupplierService.Infrastructure.Persistence;
-using SupplierService.Infrastructure.Persistence.Repositories;
+using VendorService.Infrastructure.Options;
+using VendorService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence.Repositories;
+using VendorService.Domain.Repositories;
 
-namespace SupplierService.Infrastructure;
+namespace VendorService.Infrastructure;
 
 public static class DependencyInjection
 {
@@ -38,7 +38,7 @@ public static class DependencyInjection
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
 		services.AddScoped<IProductRepository, ProductRepository>();
 		services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-		services.AddScoped<ISupplierRepository, SupplierRepository>();
+		services.AddScoped<IVendorRepository, SupplierRepository>();
 		services.AddScoped<IContactRepository, ContactRepository>();
 
 		return services;

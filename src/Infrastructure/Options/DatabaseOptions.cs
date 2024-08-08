@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Infrastructure.Options;
+﻿namespace VendorService.Infrastructure.Options;
 
 public sealed class DatabaseOptions
 {

@@ -1,13 +1,13 @@
 ﻿using Carter;
 using MediatR;
-using SupplierService.Application.Contacts.Commands.CreateContact;
-using SupplierService.Application.Contacts.Commands.DeleteContact;
-using SupplierService.Application.Contacts.Commands.UpdateContact;
-using SupplierService.Application.Contacts.Queries.GetAllContacts;
-using SupplierService.Application.Contacts.Queries.GetContactById;
-using SupplierService.Application.Contacts.Queries.GetContactBySupplierId;
+using VendorService.Application.Contacts.Commands.CreateContact;
+using VendorService.Application.Contacts.Commands.DeleteContact;
+using VendorService.Application.Contacts.Commands.UpdateContact;
+using VendorService.Application.Contacts.Queries.GetAllContacts;
+using VendorService.Application.Contacts.Queries.GetContactById;
+using VendorService.Application.Contacts.Queries.GetContactBySupplierId;
 
-namespace SupplierService.WebApi.Endpoints;
+namespace VendorService.WebApi.Endpoints;
 
 public class ContactModule : CarterModule
 {

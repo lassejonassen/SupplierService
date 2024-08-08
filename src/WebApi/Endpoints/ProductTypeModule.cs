@@ -1,12 +1,12 @@
 ﻿using Carter;
-using SupplierService.Application.ProductTypes.Commands.CreateProductType;
-using SupplierService.Application.ProductTypes.Commands.DeleteProductType;
-using SupplierService.Application.ProductTypes.Commands.UpdateProductType;
-using SupplierService.Application.ProductTypes.Queries.GetAllProductTypes;
-using SupplierService.Application.ProductTypes.Queries.GetProductTypeById;
+using VendorService.Application.ProductTypes.Commands.CreateProductType;
+using VendorService.Application.ProductTypes.Commands.DeleteProductType;
+using VendorService.Application.ProductTypes.Commands.UpdateProductType;
+using VendorService.Application.ProductTypes.Queries.GetAllProductTypes;
+using VendorService.Application.ProductTypes.Queries.GetProductTypeById;
 using MediatR;
 
-namespace SupplierService.WebApi.Endpoints;
+namespace VendorService.WebApi.Endpoints;
 
 public class ProductTypeModule : CarterModule
 {

@@ -1,9 +1,9 @@
 ﻿using CommandLine;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence;
 
-namespace SupplierService.Migrations;
+namespace VendorService.Migrations;
 
 public partial class DbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
 {

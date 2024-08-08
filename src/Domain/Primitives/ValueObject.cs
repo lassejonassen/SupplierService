@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupplierService.Domain.Primitives;
+namespace VendorService.Domain.Primitives;
 internal class ValueObject
 {
 }

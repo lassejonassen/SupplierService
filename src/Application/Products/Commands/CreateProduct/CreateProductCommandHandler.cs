@@ -1,16 +1,20 @@
-﻿namespace SupplierService.Application.Products.Commands.CreateProduct;
+﻿using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Products.Commands.CreateProduct;
 
 internal sealed class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, Guid>
 {
 	private readonly IProductRepository _productRepository;
 	private readonly IProductTypeRepository _productTypeRepository;
-	private readonly ISupplierRepository _supplierRepository;
+	private readonly IVendorRepository _supplierRepository;
 	private readonly IUnitOfWork _unitOfWork;
 
 	public CreateProductCommandHandler(
 		IProductRepository productRepository,
 		IProductTypeRepository productTypeRepository,
-		ISupplierRepository supplierRepository,
+		IVendorRepository supplierRepository,
 		IUnitOfWork unitOfWork)
 	{
 		_productRepository = productRepository;

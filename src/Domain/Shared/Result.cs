@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Domain.Shared;
+﻿namespace VendorService.Domain.Shared;
 
 public class Result
 {

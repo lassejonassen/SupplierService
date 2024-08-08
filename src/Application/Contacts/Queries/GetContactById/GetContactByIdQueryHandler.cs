@@ -1,4 +1,8 @@
-﻿namespace SupplierService.Application.Contacts.Queries.GetContactById;
+﻿using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Contacts.Queries.GetContactById;
 
 internal sealed class GetContactByIdQueryHandler : IQueryHandler<GetContactByIdQuery, Contact>
 {

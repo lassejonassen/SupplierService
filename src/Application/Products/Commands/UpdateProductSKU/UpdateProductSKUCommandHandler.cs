@@ -1,4 +1,7 @@
-﻿namespace SupplierService.Application.Products.Commands.UpdateProductSKU;
+﻿using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Products.Commands.UpdateProductSKU;
 
 internal sealed class UpdateProductSKUCommandHandler : ICommandHandler<UpdateProductSKUCommand>
 {

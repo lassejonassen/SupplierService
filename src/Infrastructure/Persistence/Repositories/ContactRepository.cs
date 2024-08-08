@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.Persistence.Repositories;
 
 public sealed class ContactRepository : IContactRepository
 {
@@ -50,7 +50,7 @@ public sealed class ContactRepository : IContactRepository
 	public async Task<Result<IEnumerable<Contact>>> GetBySupplierIdAsync(Guid supplierId, CancellationToken cancellationToken)
 	{
 		return await _dbContext.Contacts
-			.Where(x => x.SupplierId == supplierId)
+			.Where(x => x.VendorId == supplierId)
 			.ToListAsync(cancellationToken);
 	}
 
@@ -93,12 +93,12 @@ public sealed class ContactRepository : IContactRepository
 		if (supplierEntity is null)
 		{
 			_logger.LogError("Failed to get supplier from database.");
-			return Result.Failure(DomainErrors.Supplier.NotFound);
+			return Result.Failure(DomainErrors.Vendor.NotFound);
 		}
 
 		contactEntity.CorrelationId = Guid.NewGuid();
 		contactEntity.UpdatedAt = DateTimeOffset.Now;
-		contactEntity.SupplierId = supplierId;
+		contactEntity.VendorId = supplierId;
 
 		_dbContext.Entry(contactEntity).State = EntityState.Modified;
 

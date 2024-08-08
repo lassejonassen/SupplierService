@@ -1,4 +1,8 @@
-﻿namespace SupplierService.Application.Products.Queries.GetProductsByProductTypeId;
+﻿using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.Products.Queries.GetProductsByProductTypeId;
 
 internal sealed class GetProductsByProductTypeIdQueryHandler : IQueryHandler<GetProductsByProductTypeIdQuery, IEnumerable<Product>>
 {

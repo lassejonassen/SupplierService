@@ -1,8 +1,8 @@
-﻿using SupplierService.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using VendorService.Domain.Entities;
 
-namespace SupplierService.Infrastructure.Persistence.EntityConfiguration;
+namespace VendorService.Infrastructure.Persistence.EntityConfiguration;
 
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
@@ -25,8 +25,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 			.HasForeignKey(x => x.ProductTypeId)
 			.IsRequired();
 
-		builder.HasOne(x => x.Supplier)
+		builder.HasOne(x => x.Vendor)
 			.WithMany(x => x.Products)
-			.HasForeignKey(x => x.SupplierId);
+			.HasForeignKey(x => x.VendorId);
 	}
 }

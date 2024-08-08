@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Serilog.Context;
 
-namespace SupplierService.Application.Abstractions.Behavior;
+namespace VendorService.Application.Abstractions.Behavior;
 
 internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>
 	: IPipelineBehavior<TRequest, TResponse>

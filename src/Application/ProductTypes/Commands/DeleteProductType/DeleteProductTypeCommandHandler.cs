@@ -1,4 +1,7 @@
-﻿namespace SupplierService.Application.ProductTypes.Commands.DeleteProductType;
+﻿using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
+
+namespace VendorService.Application.ProductTypes.Commands.DeleteProductType;
 
 internal sealed class DeleteProductTypeCommandHandler : ICommandHandler<DeleteProductTypeCommand>
 {

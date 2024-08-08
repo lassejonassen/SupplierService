@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Domain.Shared;
+﻿namespace VendorService.Domain.Shared;
 
 /// <summary>
 /// Contains extension methods for the result class.

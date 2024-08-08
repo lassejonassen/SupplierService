@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Shared;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Domain.ValueObjects;
+namespace VendorService.Domain.ValueObjects;
 
 public sealed class Email
 {

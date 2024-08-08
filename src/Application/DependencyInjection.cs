@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using SupplierService.Application.Abstractions.Behavior;
+using VendorService.Application.Abstractions.Behavior;
 
-namespace SupplierService.Application;
+namespace VendorService.Application;
 
 public static class DependencyInjection
 {

@@ -1,14 +1,12 @@
-﻿using SupplierService.Domain.Errors;
-
-namespace SupplierService.Application.ProductTypes.Commands.CreateProductType;
+﻿namespace VendorService.Application.ProductTypes.Commands.CreateProductType;
 
 internal sealed class CreateProductTypeCommandHandler : ICommandHandler<CreateProductTypeCommand, Guid>
 {
 	private readonly IProductTypeRepository _repository;
-	private readonly ISupplierRepository _supplierRepository;
+	private readonly IVendorRepository _supplierRepository;
 	private readonly IUnitOfWork _unitOfOWork;
 
-	public CreateProductTypeCommandHandler(IProductTypeRepository repository, ISupplierRepository supplierRepository, IUnitOfWork unitOfOWork)
+	public CreateProductTypeCommandHandler(IProductTypeRepository repository, IVendorRepository supplierRepository, IUnitOfWork unitOfOWork)
 	{
 		_repository = repository;
 		_supplierRepository = supplierRepository;
@@ -21,7 +19,7 @@ internal sealed class CreateProductTypeCommandHandler : ICommandHandler<CreatePr
 
 		if (supplier.IsFailure)
 		{
-			return Result.Failure<Guid>(DomainErrors.Supplier.NotFound);
+			return Result.Failure<Guid>(DomainErrors.Vendor.NotFound);
 		}
 
 
@@ -31,8 +29,8 @@ internal sealed class CreateProductTypeCommandHandler : ICommandHandler<CreatePr
 			CreatedAt = DateTimeOffset.Now,
 			UpdatedAt = null,
 			Name = request.Name,
-			Supplier = supplier.Value,
-			SupplierId = supplier.Value.Id
+			Vendor = supplier.Value,
+			VendorId = supplier.Value.Id
 		};
 
 		await _repository.AddAsync(itemType, cancellationToken);

@@ -1,17 +1,17 @@
 ﻿using Carter;
 using MediatR;
-using SupplierService.Application.Products.Commands.CreateProduct;
-using SupplierService.Application.Products.Commands.DeleteProduct;
-using SupplierService.Application.Products.Commands.UpdateProduct;
-using SupplierService.Application.Products.Commands.UpdateProductProductType;
-using SupplierService.Application.Products.Commands.UpdateProductSKU;
-using SupplierService.Application.Products.Commands.UpdateProductSupplier;
-using SupplierService.Application.Products.Queries.GetAllProducts;
-using SupplierService.Application.Products.Queries.GetProductById;
-using SupplierService.Application.Products.Queries.GetProductsByProductTypeId;
-using SupplierService.Application.Products.Queries.GetProductsBySupplierId;
+using VendorService.Application.Products.Commands.CreateProduct;
+using VendorService.Application.Products.Commands.DeleteProduct;
+using VendorService.Application.Products.Commands.UpdateProduct;
+using VendorService.Application.Products.Commands.UpdateProductProductType;
+using VendorService.Application.Products.Commands.UpdateProductSKU;
+using VendorService.Application.Products.Commands.UpdateProductSupplier;
+using VendorService.Application.Products.Queries.GetAllProducts;
+using VendorService.Application.Products.Queries.GetProductById;
+using VendorService.Application.Products.Queries.GetProductsByProductTypeId;
+using VendorService.Application.Products.Queries.GetProductsBySupplierId;
 
-namespace SupplierService.WebApi.Endpoints;
+namespace VendorService.WebApi.Endpoints;
 
 public class ProductModule : CarterModule
 {

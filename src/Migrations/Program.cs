@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SupplierService.Migrations;
+using VendorService.Migrations;
 
 var factory = new DbContextFactory();
 var db = factory.CreateDbContext(args);

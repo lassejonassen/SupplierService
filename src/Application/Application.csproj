@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <AssemblyName>SupplierService.$(MSBuildProjectName)</AssemblyName>
-	  <RootNamespace>SupplierService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	  <AssemblyName>VendorService.$(MSBuildProjectName)</AssemblyName>
+	  <RootNamespace>VendorService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
 
 	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-			<_Parameter1>SupplierService.Application.UnitTests</_Parameter1>
+			<_Parameter1>VendorService.Application.UnitTests</_Parameter1>
 		</AssemblyAttribute>
 	</ItemGroup>
 

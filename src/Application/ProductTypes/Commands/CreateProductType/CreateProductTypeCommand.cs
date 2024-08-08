@@ -1,3 +1,3 @@
-﻿namespace SupplierService.Application.ProductTypes.Commands.CreateProductType;
+﻿namespace VendorService.Application.ProductTypes.Commands.CreateProductType;
 
 public sealed record CreateProductTypeCommand(string Name, Guid SupplierId) : ICommand<Guid>;

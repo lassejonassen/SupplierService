@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Application.Products.Commands.CreateProduct;
+﻿namespace VendorService.Application.Products.Commands.CreateProduct;
 
 public sealed record CreateProductCommand(
 	string Name,

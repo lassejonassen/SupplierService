@@ -1,6 +1,4 @@
-﻿using SupplierService.Application.Abstractions.Messaging;
-
-namespace SupplierService.Application.Contacts.Commands.CreateContact;
+﻿namespace VendorService.Application.Contacts.Commands.CreateContact;
 
 public sealed record CreateContactCommand(
 	string FirstName, string LastName,

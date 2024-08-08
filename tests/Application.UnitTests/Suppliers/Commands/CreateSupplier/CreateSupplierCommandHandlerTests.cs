@@ -1,27 +1,27 @@
 ﻿using FluentAssertions;
 using Moq;
-using SupplierService.Application.Suppliers.Commands.CreateSupplier;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
-using SupplierService.Domain.Errors;
+using VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
+namespace VendorService.Application.UnitTests.Suppliers.Commands.CreateSupplier;
 
 public class CreateSupplierCommandHandlerTests
 {
-	private readonly Mock<ISupplierRepository> _supplierRepositoryMock;
+	private readonly Mock<IVendorRepository> _supplierRepositoryMock;
 	private readonly Mock<IUnitOfWork> _unitOfWorkMock;
 
 	public CreateSupplierCommandHandlerTests()
 	{
-		_supplierRepositoryMock = new Mock<ISupplierRepository>();
+		_supplierRepositoryMock = new Mock<IVendorRepository>();
 		_unitOfWorkMock = new Mock<IUnitOfWork>();
 	}
 
 	[Fact]
 	public async Task Handle_Should_ReturnFailureResult_WhenNameIsNotUnique()
 	{
-		var command = new CreateSupplierCommand(
+		var command = new CreateVendorCommand(
 			Name: "Supplier Name",
 			Street: "Supplier Address",
 			City: "Some city",
@@ -38,20 +38,20 @@ public class CreateSupplierCommandHandlerTests
 			It.IsAny<CancellationToken>()))
 			.ReturnsAsync(false);
 
-		var handler = new CreateSupplierCommandHandler(_supplierRepositoryMock.Object, _unitOfWorkMock.Object);
+		var handler = new CreateVendorCommandHandler(_supplierRepositoryMock.Object, _unitOfWorkMock.Object);
 
 		// Act
 		Result<Guid> result = await handler.Handle(command, default);
 
 		// Assert
 		result.IsFailure.Should().BeTrue();
-		result.Error.Should().Be(DomainErrors.Supplier.NameAlreadyExists);
+		result.Error.Should().Be(DomainErrors.Vendor.NameAlreadyExists);
 	}
 
 	[Fact]
 	public async Task Handle_Should_ReturnFailureResult_WhenEmailIsNotUnique()
 	{
-		var command = new CreateSupplierCommand(
+		var command = new CreateVendorCommand(
 			Name: "Supplier Name",
 			Street: "Supplier Address",
 			City: "Some city",
@@ -68,13 +68,13 @@ public class CreateSupplierCommandHandlerTests
 			It.IsAny<CancellationToken>()))
 			.ReturnsAsync(false);
 
-		var handler = new CreateSupplierCommandHandler(_supplierRepositoryMock.Object, _unitOfWorkMock.Object);
+		var handler = new CreateVendorCommandHandler(_supplierRepositoryMock.Object, _unitOfWorkMock.Object);
 
 		// Act
 		Result<Guid> result = await handler.Handle(command, default);
 
 		// Assert
 		result.IsFailure.Should().BeTrue();
-		result.Error.Should().Be(DomainErrors.Supplier.EmailAlreadyInUse);
+		result.Error.Should().Be(DomainErrors.Vendor.EmailAlreadyInUse);
 	}
 }

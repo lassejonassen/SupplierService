@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace SupplierService.Migrations;
+namespace VendorService.Migrations;
 
 public partial class DbContextFactory
 {

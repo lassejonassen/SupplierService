@@ -1,7 +1,7 @@
-﻿using SupplierService.Domain.Entities;
-using SupplierService.Domain.Shared;
+﻿using VendorService.Domain.Entities;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Domain.Repositories;
+namespace VendorService.Domain.Repositories;
 
 public interface IProductRepository
 {

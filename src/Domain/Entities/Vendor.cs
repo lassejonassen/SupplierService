@@ -1,14 +1,14 @@
-﻿using SupplierService.Domain.Enums;
-using SupplierService.Domain.Primitives;
+﻿using VendorService.Domain.Enums;
+using VendorService.Domain.Primitives;
 
-namespace SupplierService.Domain.Entities;
+namespace VendorService.Domain.Entities;
 
-public sealed record Supplier : Entity
+public sealed record Vendor : Entity
 {
 	// Base Information
 	public required string Name { get; set; }
 	public required SupplierStatus Status { get; set; } = SupplierStatus.PendingApproval;
-	
+
 	public required string Street { get; set; }
 	public required string City { get; set; }
 	public required string PostalCode { get; set; }
@@ -24,15 +24,15 @@ public sealed record Supplier : Entity
 	public ICollection<Product>? Products { get; set; }
 
 
-	public static Supplier Create(
-		string name, 
+	public static Vendor Create(
+		string name,
 		string street,
 		string city, string postalCode,
 		string country, string? state,
 		string email, string phone,
 		string? notes)
 	{
-		var supplier = new Supplier() {
+		var supplier = new Vendor() {
 			Id = Guid.NewGuid(),
 			CreatedAt = DateTimeOffset.Now,
 			UpdatedAt = null,

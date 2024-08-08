@@ -1,6 +1,6 @@
-﻿using SupplierService.Domain.Repositories;
+﻿using VendorService.Domain.Repositories;
 
-namespace SupplierService.Infrastructure.Persistence;
+namespace VendorService.Infrastructure.Persistence;
 
 internal sealed class UnitOfWork : IUnitOfWork
 {

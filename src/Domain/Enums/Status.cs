@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Domain.Enums;
+﻿namespace VendorService.Domain.Enums;
 
 public enum SupplierStatus
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SupplierService.Application.Abstractions.Messaging;
+namespace VendorService.Application.Abstractions.Messaging;
 
 public interface IQueryHandler<TQuery, TResponse>
 	: IRequestHandler<TQuery, Result<TResponse>>

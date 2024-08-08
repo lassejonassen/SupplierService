@@ -1,6 +1,6 @@
-﻿using SupplierService.Domain.Primitives;
+﻿using VendorService.Domain.Primitives;
 
-namespace SupplierService.Domain.Entities;
+namespace VendorService.Domain.Entities;
 
 public sealed record Contact : Entity
 {
@@ -10,17 +10,16 @@ public sealed record Contact : Entity
 	public required string Phone { get; set; }
 	public string? Notes { get; set; }
 
-	public required Guid SupplierId { get; set; }
-	public required Supplier Supplier { get; set; }
+	public required Guid VendorId { get; set; }
+	public required Vendor Vendor { get; set; }
 
 	public static Contact Create(
 		string firstName, string lastName,
 		string email, string phone,
 		string? notes,
-		Supplier supplier)
+		Vendor supplier)
 	{
-		var contact = new Contact ()
-		{
+		var contact = new Contact() {
 			Id = Guid.NewGuid(),
 			CreatedAt = DateTimeOffset.Now,
 			UpdatedAt = null,
@@ -30,8 +29,8 @@ public sealed record Contact : Entity
 			Email = email,
 			Phone = phone,
 			Notes = notes,
-			SupplierId = supplier.Id,
-			Supplier = supplier
+			VendorId = supplier.Id,
+			Vendor = supplier
 		};
 
 		//contact.Raise(new ContactCreatedEvent {

@@ -1,4 +1,4 @@
-﻿namespace SupplierService.Domain.Primitives;
+﻿namespace VendorService.Domain.Primitives;
 
 
 /// <summary>

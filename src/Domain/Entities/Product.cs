@@ -1,6 +1,6 @@
-﻿using SupplierService.Domain.Primitives;
+﻿using VendorService.Domain.Primitives;
 
-namespace SupplierService.Domain.Entities;
+namespace VendorService.Domain.Entities;
 
 public sealed record Product : Entity
 {
@@ -9,8 +9,8 @@ public sealed record Product : Entity
 	public required string SKU { get; set; }
 	public required Guid ProductTypeId { get; set; }
 	public required ProductType ProductType { get; set; }
-	public required Guid SupplierId { get; set; }
-	public required Supplier Supplier { get; set; }
+	public required Guid VendorId { get; set; }
+	public required Vendor Vendor { get; set; }
 
 
 	public static Product Create(
@@ -18,7 +18,7 @@ public sealed record Product : Entity
 		string? description,
 		string sku,
 		ProductType productType,
-		Supplier supplier)
+		Vendor supplier)
 	{
 		var product = new Product() {
 			Id = Guid.NewGuid(),
@@ -30,8 +30,9 @@ public sealed record Product : Entity
 			SKU = sku,
 			ProductTypeId = productType.Id,
 			ProductType = productType,
-			SupplierId = supplier.Id,
-			Supplier = supplier};
+			VendorId = supplier.Id,
+			Vendor = supplier
+		};
 
 		//product.Raise(new ProductCreatedEvent {
 		//	ProductId = product.Id,

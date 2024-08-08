@@ -1,11 +1,11 @@
 ﻿using Carter;
 using MediatR;
-using SupplierService.Application.Suppliers.Commands.CreateSupplier;
-using SupplierService.Application.Suppliers.Commands.DeleteSupplier;
-using SupplierService.Application.Suppliers.Queries.GetAllSuppliers;
-using SupplierService.Application.Suppliers.Queries.GetSupplierById;
+using VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
+using VendorService.Application.VendorService.Application.Vendors.Commands.DeleteVendor;
+using VendorService.Application.VendorService.Application.Vendors.Queries.GetAllVendors;
+using VendorService.Application.VendorService.Application.Vendors.Queries.GetVendorById;
 
-namespace SupplierService.WebApi.Endpoints;
+namespace VendorService.WebApi.Endpoints;
 
 public class SupplierModule : CarterModule
 {
@@ -17,7 +17,7 @@ public class SupplierModule : CarterModule
 
 	public override void AddRoutes(IEndpointRouteBuilder app)
 	{
-		app.MapPost("/", async (CreateSupplierCommand command, ISender sender) => {
+		app.MapPost("/", async (CreateVendorCommand command, ISender sender) => {
 			var result = await sender.Send(command);
 
 			if (result.IsFailure)
@@ -29,7 +29,7 @@ public class SupplierModule : CarterModule
 		});
 
 		app.MapGet("/", async (ISender sender) => {
-			var result = await sender.Send(new GetAllSuppliersQuery());
+			var result = await sender.Send(new GetAllVendorsQuery());
 
 			if (result.IsFailure)
 			{
@@ -40,7 +40,7 @@ public class SupplierModule : CarterModule
 		}).WithDescription("Get all suppliers");
 
 		app.MapGet("/{id:guid}", async (Guid id, ISender sender) => {
-			var result = await sender.Send(new GetSupplierByIdQuery(id));
+			var result = await sender.Send(new GetVendorByIdQuery(id));
 
 			if (result.IsFailure)
 			{
@@ -51,7 +51,7 @@ public class SupplierModule : CarterModule
 		}).WithDescription("Get a supplier by id");
 
 		app.MapDelete("/{id:guid}", async (Guid id, ISender sender) => {
-			var result = await sender.Send(new DeleteSupplierCommand(id));
+			var result = await sender.Send(new DeleteVendorCommand(id));
 
 			if (result.IsFailure)
 			{

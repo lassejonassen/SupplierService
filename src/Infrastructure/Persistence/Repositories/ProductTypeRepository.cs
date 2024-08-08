@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SupplierService.Domain.Entities;
-using SupplierService.Domain.Errors;
-using SupplierService.Domain.Repositories;
-using SupplierService.Domain.Shared;
+using VendorService.Domain.Errors;
+using VendorService.Domain.Entities;
+using VendorService.Domain.Repositories;
+using VendorService.Domain.Shared;
 
-namespace SupplierService.Infrastructure.Persistence.Repositories;
+namespace VendorService.Infrastructure.Persistence.Repositories;
 
 public sealed class ProductTypeRepository : IProductTypeRepository
 {

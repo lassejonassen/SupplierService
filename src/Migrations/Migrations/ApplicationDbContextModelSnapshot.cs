@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using SupplierService.Infrastructure.Persistence;
+using VendorService.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace SupplierService.Migrations.Migrations
+namespace VendorService.Migrations.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace SupplierService.Migrations.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Contact", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace SupplierService.Migrations.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Product", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,7 +109,7 @@ namespace SupplierService.Migrations.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.ProductType", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.ProductType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -139,7 +139,7 @@ namespace SupplierService.Migrations.Migrations
                     b.ToTable("ProductTypes");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Supplier", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Supplier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -197,9 +197,9 @@ namespace SupplierService.Migrations.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Contact", b =>
                 {
-                    b.HasOne("SupplierService.Domain.Entities.Supplier", "Supplier")
+                    b.HasOne("VendorService.Domain.Entities.Supplier", "Supplier")
                         .WithMany("Contacts")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -208,15 +208,15 @@ namespace SupplierService.Migrations.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Product", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("SupplierService.Domain.Entities.ProductType", "ProductType")
+                    b.HasOne("VendorService.Domain.Entities.ProductType", "ProductType")
                         .WithMany("Products")
                         .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SupplierService.Domain.Entities.Supplier", "Supplier")
+                    b.HasOne("VendorService.Domain.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -227,9 +227,9 @@ namespace SupplierService.Migrations.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.ProductType", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.ProductType", b =>
                 {
-                    b.HasOne("SupplierService.Domain.Entities.Supplier", "Supplier")
+                    b.HasOne("VendorService.Domain.Entities.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -238,12 +238,12 @@ namespace SupplierService.Migrations.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.ProductType", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.ProductType", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("SupplierService.Domain.Entities.Supplier", b =>
+            modelBuilder.Entity("VendorService.Domain.Entities.Supplier", b =>
                 {
                     b.Navigation("Contacts");
 

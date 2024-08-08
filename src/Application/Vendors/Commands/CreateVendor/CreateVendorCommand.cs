@@ -1,6 +1,6 @@
-﻿namespace SupplierService.Application.Suppliers.Commands.CreateSupplier;
+﻿namespace VendorService.Application.VendorService.Application.Vendors.Commands.CreateVendor;
 
-public sealed record CreateSupplierCommand(
+public sealed record CreateVendorCommand(
 	string Name,
 	string Street,
 	string City,

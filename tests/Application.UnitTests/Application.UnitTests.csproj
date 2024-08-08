@@ -8,8 +8,8 @@
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
 
-		<AssemblyName>SupplierService.$(MSBuildProjectName)</AssemblyName>
-		<RootNamespace>SupplierService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<AssemblyName>VendorService.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>VendorService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
